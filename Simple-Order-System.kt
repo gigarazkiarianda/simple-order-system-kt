@@ -3,70 +3,55 @@ import javax.swing.JOptionPane
 fun main(args: Array<String>) {
     var isLoggedIn = false
     var username = ""
+    val menuItems = mapOf("Coffee" to 2.99, "Tea" to 1.99, "Milk" to 3.49)
+    val chartItems = mutableListOf<Pair<String, Double>>()
 
     while (!isLoggedIn) {
-        val input = JOptionPane.showInputDialog("Enter username:")
-        if (input == null) {
-            JOptionPane.showMessageDialog(null, "Exiting")
-            return
-        }
+        val input = JOptionPane.showInputDialog("Enter username:") ?: return
         username = input
 
-        val password = JOptionPane.showInputDialog("Enter password:")
-        if (password == null) {
-            JOptionPane.showMessageDialog(null, "Exiting")
-            return
-        }
+        val password = JOptionPane.showInputDialog("Enter password:") ?: return
 
-        if (checkCredentials(username, password)) {
-            isLoggedIn = true
-            JOptionPane.showMessageDialog(null, "Logged in as $username")
-        } else {
+        isLoggedIn = checkCredentials(username, password)
+        if (!isLoggedIn) {
             JOptionPane.showMessageDialog(null, "Invalid credentials")
         }
     }
 
-    val menuItems = listOf("Coffee" to 2.99, "Tea" to 1.99, "Milk" to 3.49)
-    val chartItems = mutableListOf<String>()
-
     var isRunning = true
 
     while (isRunning) {
-        val choice = JOptionPane.showInputDialog("What do you want to order?\n1. Coffee (${menuItems[0].second})\n2.Tea (${menuItems[1].second})\n3.Milk (${menuItems[2].second})\n4. Exit")
-        if (choice == null) {
-            JOptionPane.showMessageDialog(null, "Exiting")
-            return
-        }
+        val choice = JOptionPane.showInputDialog("What do you want to order?\n1. Coffee (${menuItems["Coffee"]})\n2.Tea (${menuItems["Tea"]})\n3.Milk (${menuItems["Milk"]})\n4. Exit") ?: return
 
         when (choice) {
             "1" -> {
-                chartItems.add("Coffee")
+                chartItems.add(Pair("Coffee", menuItems["Coffee"]!!))
                 JOptionPane.showMessageDialog(null, "You ordered Coffee")
             }
             "2" -> {
-                chartItems.add("Tea")
+                chartItems.add(Pair("Tea", menuItems["Tea"]!!))
                 JOptionPane.showMessageDialog(null, "You ordered Tea")
             }
             "3" -> {
-                chartItems.add("Milk")
+                chartItems.add(Pair("Milk", menuItems["Milk"]!!))
                 JOptionPane.showMessageDialog(null, "You ordered Milk")
             }
             "4" -> {
-                JOptionPane.showMessageDialog(null, "Logged out")
                 isRunning = false
+                JOptionPane.showMessageDialog(null, "Logged out")
             }
             else -> JOptionPane.showMessageDialog(null, "Invalid choice")
         }
     }
 
     if (chartItems.isNotEmpty()) {
-        JOptionPane.showMessageDialog(null, "Items in the chart:\n${chartItems.joinToString("\n")}")
+        JOptionPane.showMessageDialog(null, "Items in the chart:\n${chartItems.joinToString("\n") { (item, price) -> "$item - $price" }}")
     }
+
+    val totalOrderPrice = chartItems.sumOf { (_, price) -> price }
+    JOptionPane.showMessageDialog(null, "Total order price: $totalOrderPrice")
 }
 
 fun checkCredentials(username: String, password: String): Boolean {
     return username == "admin" && password == "123"
 }
-
-
-
