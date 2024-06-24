@@ -13,7 +13,7 @@
 
 
 ## Introduction
-Simple Order System merupakan sebuah aplikasi berbasis Kotlin yang dirancang untuk mensimulasikan sistem pemesanan sederhana di sebuah kafe. Aplikasi ini menggunakan antarmuka grafis yang memudahkan pengguna untuk melakukan login, memesan item seperti kopi, teh, dan susu, serta melihat ringkasan pesanan beserta total harga yang harus dibayar. Aplikasi ini menampilkan interaksi dasar GUI menggunakan JOptionPane serta penerapan dasar dari pengendalian alur dan manajemen data dalam Kotlin.
+`Simple Order System` merupakan sebuah aplikasi berbasis Kotlin yang dirancang untuk mensimulasikan sistem pemesanan sederhana di sebuah kafe. Aplikasi ini menggunakan antarmuka grafis yang memudahkan pengguna untuk melakukan login, memesan item seperti kopi, teh, dan susu, serta melihat ringkasan pesanan beserta total harga yang harus dibayar. Aplikasi ini menampilkan interaksi dasar GUI menggunakan JOptionPane serta penerapan dasar dari pengendalian alur dan manajemen data dalam Kotlin.
 
 ## Fitur 
  * Autentikasi Pengguna
