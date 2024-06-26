@@ -50,18 +50,12 @@ kotlinc Main.kt -include-runtime -d Main.jar
 
 ```
 
-## Struktur Folder
-![SoWkIImgAStDuU8gI4pEJanFLL0gpimjo4dLpIzAIItIBQuiBadDLLAevb80WhJC7EmAzB9Bb0Yeo4eiGbO252fmpaz93IhDoqijSWEAGLJKSd4vfEQbW9m40000](https://github.com/gigarazkiarianda/simple-order-system-kt/assets/75737741/477ae64d-e029-4aee-b98a-ed718c67988d)
+
 
 
 
 ## Highlight
 > None
-
-## System Flow
-![code2flow_sizCIL](https://github.com/gigarazkiarianda/simple-order-system-kt/assets/75737741/ffa4be12-69d2-4ae5-bd98-779cc462e2ba)
-
-
 
 ## Issue
 
